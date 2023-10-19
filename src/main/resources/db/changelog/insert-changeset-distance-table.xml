@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="insert-into-distance" author="kviak">
+        <insert tableName="distance">
+            <column name="from_city_id" value="1"/>
+            <column name="to_city_id" value="2"/>   <!--  from Kazan to Moscow-->
+            <column name="distance" value="824.6"/>
+            <column name="from_city_id" value="2"/>
+            <column name="to_city_id" value="1"/>   <!--  from Moscow to Kazan-->
+            <column name="distance" value="824.6"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
