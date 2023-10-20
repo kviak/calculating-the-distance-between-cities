@@ -7,13 +7,33 @@
     <changeSet id="insert-into-city" author="kviak">
         <insert tableName="city">
             <column name="name" value="Kazan"/>
-            <column name="longitude" value="55.787195619341446"/>
-            <column name="latitude" value="49.123127080539255"/>
+            <column name="longitude" value="49.123127080539255"/>
+            <column name="latitude" value="55.787195619341446"/>
         </insert>
         <insert tableName="city">
             <column name="name" value="Moscow"/>
-            <column name="longitude" value="55.753909129532346"/>
-            <column name="latitude" value="37.62775277138101"/>
+            <column name="longitude" value="37.62775277138101"/>
+            <column name="latitude" value="55.753909129532346"/>
+        </insert>
+        <insert tableName="city">
+            <column name="name" value="Kiev"/>
+            <column name="longitude" value="30.523333"/>
+            <column name="latitude" value="50.450001"/>
+        </insert>
+        <insert tableName="city">
+            <column name="name" value="Vladivostok"/>
+            <column name="longitude" value="131.873531231231"/>
+            <column name="latitude" value="43.105621123123"/>
+        </insert>
+        <insert tableName="city">
+            <column name="name" value="Volgograd"/>
+            <column name="longitude" value="44.76666670"/>
+            <column name="latitude" value="48.78333330"/>
+        </insert>
+        <insert tableName="city">
+            <column name="name" value="New York"/>
+            <column name="longitude" value="-73.935242"/>
+            <column name="latitude" value="40.730610"/>
         </insert>
     </changeSet>
 </databaseChangeLog>

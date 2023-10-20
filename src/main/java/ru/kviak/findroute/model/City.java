@@ -23,9 +23,9 @@ public class City {
     @Column(name = "latitude", nullable = false, unique = true)
     private double latitude;
 
-    @OneToMany(mappedBy = "fromCity")
-    private List<Distance> distancesFrom;
+//    @OneToMany
+//    private List<Distance> distances;
 
-    @OneToMany(mappedBy = "toCity")
-    private List<Distance> distancesTo;
+//    @OneToMany(mappedBy = "toCity")
+//    private List<Distance> distancesTo;
 }

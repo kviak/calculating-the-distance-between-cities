@@ -14,12 +14,13 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CalculateDistanceService {
     private final DistanceRepository distanceRepository;
+    private final DijkstraAlgorithmService finderAlgorithmService;
 
     public List<DistanceDto> getAll(){
         List<DistanceDto> list = new ArrayList<>();
         distanceRepository.findAll().forEach(distance -> {
             list.add(new DistanceDto(distance.getFromCity().getName(),
-                    distance.getToCity().getName(),
+                    distance.getFromCity().getName(),
                     distance.getDistance()));});
         return list;
     }
@@ -29,7 +30,7 @@ public class CalculateDistanceService {
             case "Crowflight":
                 return calculateCrowflight(list.get(0).get(0),  list.get(1).get(0));
             case "Distance Matrix":
-                System.out.println("Distance Matrix"); break;
+                return Collections.singletonList(finderAlgorithmService.findPathDijkstraAlgorithm(list));
             case "All":
                 System.out.println("All"); break;
             default:

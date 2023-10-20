@@ -9,9 +9,61 @@
             <column name="from_city_id" value="1"/>
             <column name="to_city_id" value="2"/>   <!--  from Kazan to Moscow-->
             <column name="distance" value="824.6"/>
+        </insert>
+        <insert tableName="distance">
             <column name="from_city_id" value="2"/>
             <column name="to_city_id" value="1"/>   <!--  from Moscow to Kazan-->
             <column name="distance" value="824.6"/>
+        </insert>
+        <insert tableName="distance">
+            <column name="from_city_id" value="3"/>
+            <column name="to_city_id" value="2"/>   <!--  from Kiev to Moscow-->
+            <column name="distance" value="869.9"/>
+        </insert>
+        <insert tableName="distance">
+            <column name="from_city_id" value="2"/>
+            <column name="to_city_id" value="3"/>   <!--  from Moscow to Kiev-->
+            <column name="distance" value="869.9"/>
+        </insert>
+        <insert tableName="distance">
+            <column name="from_city_id" value="3"/>
+            <column name="to_city_id" value="5"/>   <!--  from Kiev to Volgograd-->
+            <column name="distance" value="1293.9"/>
+        </insert>
+        <insert tableName="distance">
+            <column name="from_city_id" value="5"/>
+            <column name="to_city_id" value="3"/>   <!--  from Volgograd to Kiev-->
+            <column name="distance" value="1293.9"/>
+        </insert>
+        <insert tableName="distance">
+            <column name="from_city_id" value="2"/>
+            <column name="to_city_id" value="5"/>   <!--  from Moscow to Volgograd-->
+            <column name="distance" value="969.5"/>
+        </insert>
+        <insert tableName="distance">
+            <column name="from_city_id" value="5"/>
+            <column name="to_city_id" value="2"/>   <!--  from Volgograd to Moscow-->
+            <column name="distance" value="969.5"/>
+        </insert>
+        <insert tableName="distance">
+            <column name="from_city_id" value="5"/>
+            <column name="to_city_id" value="4"/>   <!--  from Volgograd to Vladivostok-->
+            <column name="distance" value="8060.6"/>
+        </insert>
+        <insert tableName="distance">
+            <column name="from_city_id" value="4"/>
+            <column name="to_city_id" value="5"/>   <!--  from Vladivostok to Volgograd-->
+            <column name="distance" value="8060.6"/>
+        </insert>
+        <insert tableName="distance">
+            <column name="from_city_id" value="1"/>
+            <column name="to_city_id" value="4"/>   <!--  from Kazan to Vladivostok-->
+            <column name="distance" value="8334.9"/>
+        </insert>
+        <insert tableName="distance">
+            <column name="from_city_id" value="4"/>
+            <column name="to_city_id" value="1"/>   <!--  from Vladivostok to Kazan-->
+            <column name="distance" value="8334.9"/>
         </insert>
     </changeSet>
 </databaseChangeLog>
