@@ -22,11 +22,8 @@ public class DijkstraAlgorithmService {
 
 
     @Transactional(readOnly = true)
-    public DistanceDto findPathDijkstraAlgorithm(List<List<CityDto>> list) {
+    public DistanceDto findPathDijkstraAlgorithm(CityDto sourceDto, CityDto targetDto) {
 //        System.out.println("From: " + list.get(0).get(0).getName() + " To: " + list.get(1).get(0).getName());
-
-        CityDto sourceDto = list.get(0).get(0);
-        CityDto targetDto = list.get(1).get(0);
 
         City source = cityRepository.findById(sourceDto.getId()).orElse(null);
         City target = cityRepository.findById(targetDto.getId()).orElse(null);

@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DistanceDto {
-    private String fromCity;
-    private String toCity;
-    private Double distance;
+public class CityDtoView {
+    private String name;
+    private double longitude;
+    private double latitude;
 }

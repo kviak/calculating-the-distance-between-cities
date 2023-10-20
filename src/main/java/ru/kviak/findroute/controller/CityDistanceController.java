@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class Controller {
+public class CityDistanceController {
     private final CityService cityService;
     private final CalculateDistanceService calculateDistanceService;
 
@@ -24,7 +24,7 @@ public class Controller {
         return ResponseEntity.ok(cityService.getAllCites());
     }
 
-    @GetMapping("/distance")
+    @GetMapping("/distance") // Этот эндпоинт для себя
     public ResponseEntity<List<DistanceDto>> handleDistance(){
         return ResponseEntity.ok(calculateDistanceService.getAll());
     }

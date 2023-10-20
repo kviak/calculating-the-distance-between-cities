@@ -4,10 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.kviak.findroute.dto.CityDto;
 import ru.kviak.findroute.dto.DistanceDto;
+import ru.kviak.findroute.exception.IncorrectCalculationTypeException;
 import ru.kviak.findroute.repository.DistanceRepository;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -26,23 +26,36 @@ public class CalculateDistanceService {
     }
 
     public List<?> calculate(String calculateType, List<List<CityDto>> list){
+        List<DistanceDto> distanceDtoList = new ArrayList<>();
         switch (calculateType){
-            case "Crowflight":
-                return calculateCrowflight(list.get(0).get(0),  list.get(1).get(0));
-            case "Distance Matrix":
-                return Collections.singletonList(finderAlgorithmService.findPathDijkstraAlgorithm(list));
-            case "All":
-                System.out.println("All"); break;
+            case "Crowflight":{
+                for (int i = 0; i < list.get(0).size(); i++) {
+                    distanceDtoList.add(calculateCrowflight(list.get(0).get(i),  list.get(1).get(i)));
+                }
+                return distanceDtoList;
+            }
+            case "Distance Matrix":{
+                for (int i = 0; i < list.get(0).size(); i++) {
+                    distanceDtoList.add(finderAlgorithmService.findPathDijkstraAlgorithm(list.get(0).get(i), list.get(1).get(i)));
+                }
+                return distanceDtoList;
+            }
+            case "All":{
+                for (int i = 0; i < list.get(0).size(); i++) {
+                    distanceDtoList.add(finderAlgorithmService.findPathDijkstraAlgorithm(list.get(0).get(i), list.get(1).get(i)));
+                    distanceDtoList.add(calculateCrowflight(list.get(0).get(i),  list.get(1).get(i)));
+                }
+                return distanceDtoList;
+            }
             default:
-                System.out.println("Incorrect Calculation Type!"); // TODO: Сделать исключения и их хендлинг
+                throw new IncorrectCalculationTypeException();
         }
-        return null;
     }
 
-    public List<DistanceDto> calculateCrowflight(CityDto fromCity, CityDto toCity){
-        return Collections.singletonList(new DistanceDto(fromCity.getName(),
+    public DistanceDto calculateCrowflight(CityDto fromCity, CityDto toCity){
+        return new DistanceDto(fromCity.getName(),
                 toCity.getName(),
-                haversine(fromCity.getLatitude(), fromCity.getLongitude(), toCity.getLatitude(), toCity.getLongitude())));
+                haversine(fromCity.getLatitude(), fromCity.getLongitude(), toCity.getLatitude(), toCity.getLongitude()));
     }
 
     private double haversine(double lat1, double lon1, double lat2, double lon2) {
@@ -55,7 +68,7 @@ public class CalculateDistanceService {
         lat1 = Math.toRadians(lat1);
         lat2 = Math.toRadians(lat2);
 
-        // apply formulae
+        // apply formula
         double a = Math.pow(Math.sin(dLat / 2), 2) +
                 Math.pow(Math.sin(dLon / 2), 2) *
                         Math.cos(lat1) *
