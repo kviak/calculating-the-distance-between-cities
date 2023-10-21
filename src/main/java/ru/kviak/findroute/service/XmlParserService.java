@@ -4,13 +4,14 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.kviak.findroute.dto.CitiesAndDistancesDto;
-import ru.kviak.findroute.dto.CityDtoView;
-import ru.kviak.findroute.dto.DistanceDto;
-import ru.kviak.findroute.model.City;
-import ru.kviak.findroute.model.Distance;
-import ru.kviak.findroute.repository.CityRepository;
-import ru.kviak.findroute.repository.DistanceRepository;
+import ru.kviak.findroute.model.xml.CitiesAndDistancesWrapper;
+import ru.kviak.findroute.model.xml.CityXmlUpload;
+import ru.kviak.findroute.model.xml.Distance;
+import ru.kviak.findroute.exception.InvalidXmlDataException;
+import ru.kviak.findroute.persistence.entity.CityEntity;
+import ru.kviak.findroute.persistence.entity.DistanceEntity;
+import ru.kviak.findroute.persistence.repository.CityRepository;
+import ru.kviak.findroute.persistence.repository.DistanceRepository;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,34 +25,38 @@ public class XmlParserService {
     private final DistanceRepository distanceRepository;
 
     @Transactional
-    public void parseCitiesAndDistances(InputStream xmlInput) throws IOException {
-        XmlMapper xmlMapper = new XmlMapper();
-        CitiesAndDistancesDto data = xmlMapper.readValue(xmlInput, CitiesAndDistancesDto.class);
+    public void parseCitiesAndDistances(InputStream xmlInput) throws InvalidXmlDataException {
+        try {
+            XmlMapper xmlMapper = new XmlMapper();
+            CitiesAndDistancesWrapper data = xmlMapper.readValue(xmlInput, CitiesAndDistancesWrapper.class);
 
-        List<City> cities = data.getCities().stream()
-                .map(this::mapToCity)
-                .collect(Collectors.toList());
-        cityRepository.saveAll(cities);
+            List<CityEntity> cities = data.getCities().stream()
+                    .map(this::mapToCity)
+                    .collect(Collectors.toList());
+            cityRepository.saveAll(cities);
 
-        List<Distance> distances = data.getDistances().stream()
-                .map(this::mapToDistance)
-                .collect(Collectors.toList());
-        distanceRepository.saveAll(distances);
+            List<DistanceEntity> distanceEntities = data.getDistances().stream()
+                    .map(this::mapToDistance)
+                    .collect(Collectors.toList());
+            distanceRepository.saveAll(distanceEntities);
+        } catch (IOException e) {
+            throw new InvalidXmlDataException("Invalid input data", e);
+        }
     }
 
-    private City mapToCity(CityDtoView cityDto) {
-        City city = new City();
-        city.setName(cityDto.getName());
-        city.setLongitude(cityDto.getLongitude());
-        city.setLatitude(cityDto.getLatitude());
-        return city;
+    private CityEntity mapToCity(CityXmlUpload cityDto) {
+        CityEntity cityEntity = new CityEntity();
+        cityEntity.setName(cityDto.getName());
+        cityEntity.setLongitude(cityDto.getLongitude());
+        cityEntity.setLatitude(cityDto.getLatitude());
+        return cityEntity;
     }
 
-    private Distance mapToDistance(DistanceDto distanceDto) {
-        Distance distance = new Distance();
-        distance.setFromCity(cityRepository.findByName(distanceDto.getFromCity()).get());
-        distance.setToCity(cityRepository.findByName(distanceDto.getToCity()).get());
-        distance.setDistance(distanceDto.getDistance());
-        return distance;
+    private DistanceEntity mapToDistance(Distance distanceDto) {
+        DistanceEntity distanceEntity = new DistanceEntity();
+        distanceEntity.setFromCityEntity(cityRepository.findByName(distanceDto.getFromCity()).get());
+        distanceEntity.setToCityEntity(cityRepository.findByName(distanceDto.getToCity()).get());
+        distanceEntity.setDistance(distanceDto.getDistance());
+        return distanceEntity;
     }
 }

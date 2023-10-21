@@ -1,4 +1,4 @@
-package ru.kviak.findroute.model;
+package ru.kviak.findroute.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -6,19 +6,18 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "distance")
-public class Distance {
+public class DistanceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "distance_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "from_city_id")
-    private City fromCity;
+    private CityEntity fromCityEntity;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "to_city_id")
-    private City toCity;
+    private CityEntity toCityEntity;
 
     @Column(name = "distance")
     private Double distance;

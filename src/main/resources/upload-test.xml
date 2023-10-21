@@ -1,28 +1,28 @@
 <citiesAndDistances>
     <cities>
-        <city>
+        <cityEntity>
             <name>St. Petersburg</name>
             <longitude>30.31586815058708</longitude>
             <latitude>59.93909509810952</latitude>
-        </city>
-        <city>
+        </cityEntity>
+        <cityEntity>
             <name>Novosibirsk</name>
             <longitude>82.93786686262684</longitude>
             <latitude>55.03019970380535</latitude>
-        </city>
+        </cityEntity>
     </cities>
-    <distances>
-        <distance>
-            <fromCity>St. Petersburg</fromCity>
-            <toCity>Novosibirsk</toCity>
-            <distance>3296.4</distance>
-        </distance>
-        <distance>
-            <fromCity>Novosibirsk</fromCity>
-            <toCity>St. Petersburg</toCity>
-            <distance>3296.4</distance>
-        </distance>
-    </distances>
+    <distanceEntities>
+        <distanceEntity>
+            <fromCityEntity>St. Petersburg</fromCityEntity>
+            <toCityEntity>Novosibirsk</toCityEntity>
+            <distanceEntity>3296.4</distanceEntity>
+        </distanceEntity>
+        <distanceEntity>
+            <fromCityEntity>Novosibirsk</fromCityEntity>
+            <toCityEntity>St. Petersburg</toCityEntity>
+            <distanceEntity>3296.4</distanceEntity>
+        </distanceEntity>
+    </distanceEntities>
 </citiesAndDistances>
 
 

@@ -5,8 +5,8 @@
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <changeSet id="create_table_distance" author="kviak">
-        <createTable tableName="distance">
-            <column name="distance_id" type="bigint" autoIncrement="true">
+        <createTable tableName="distanceEntity">
+            <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="from_city_id" type="bigint">
@@ -15,17 +15,17 @@
             <column name="to_city_id" type="bigint">
                 <constraints nullable="false"/>
             </column>
-            <column name="distance" type="decimal(10, 2)">
+            <column name="distanceEntity" type="decimal(10, 2)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
 
-        <addForeignKeyConstraint baseTableName="distance" baseColumnNames="from_city_id"
-                                 constraintName="fk_from_city" referencedTableName="city"
-                                 referencedColumnNames="city_id"/>
+        <addForeignKeyConstraint baseTableName="distanceEntity" baseColumnNames="from_city_id"
+                                 constraintName="fk_from_city" referencedTableName="cityEntity"
+                                 referencedColumnNames="id"/>
 
-        <addForeignKeyConstraint baseTableName="distance" baseColumnNames="to_city_id"
-                                 constraintName="fk_to_city" referencedTableName="city"
-                                 referencedColumnNames="city_id"/>
+        <addForeignKeyConstraint baseTableName="distanceEntity" baseColumnNames="to_city_id"
+                                 constraintName="fk_to_city" referencedTableName="cityEntity"
+                                 referencedColumnNames="id"/>
     </changeSet>
 </databaseChangeLog>

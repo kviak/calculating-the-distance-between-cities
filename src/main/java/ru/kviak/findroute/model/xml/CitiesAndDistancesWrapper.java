@@ -1,4 +1,4 @@
-package ru.kviak.findroute.dto;
+package ru.kviak.findroute.model.xml;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import lombok.AllArgsConstructor;
@@ -10,10 +10,10 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CitiesAndDistancesDto {
+public class CitiesAndDistancesWrapper {
     @JacksonXmlElementWrapper(localName = "cities")
-    private List<CityDtoView> cities;
+    private List<CityXmlUpload> cities;
 
     @JacksonXmlElementWrapper(localName = "distances")
-    private List<DistanceDto> distances;
+    private List<Distance> distances;
 }

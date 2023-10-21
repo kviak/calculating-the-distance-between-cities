@@ -3,6 +3,6 @@ package ru.kviak.findroute.exception;
 import lombok.experimental.StandardException;
 
 @StandardException
-public class IncorrectCalculationTypeException extends RuntimeException {
+public class InvalidXmlDataException extends RuntimeException {
     private String message;
 }

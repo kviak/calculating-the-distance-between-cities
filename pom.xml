@@ -9,11 +9,13 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ru.kviak</groupId>
-    <artifactId>calculating-the-distance-between-cities</artifactId>
+    <artifactId>calculating-the-distanceEntity-between-cities</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>calculating-the-distance-between-cities</name>
-    <description>calculating-the-distance-between-cities</description>
+    <name>calculating-the-distanceEntity-between-cities</name>
+    <description>calculating-the-distanceEntity-between-cities</description>
     <properties>
+        <org-mapstruct.version>1.5.5.Final</org-mapstruct.version>
+        <jackson-dataformat-xml.version>2.15.3</jackson-dataformat-xml.version>
         <java.version>17</java.version>
     </properties>
     <dependencies>
@@ -47,7 +49,17 @@
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
-            <version>2.15.3</version>
+            <version>${jackson-dataformat-xml.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${org-mapstruct.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>${org-mapstruct.version}</version>
         </dependency>
     </dependencies>
 

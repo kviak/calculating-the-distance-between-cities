@@ -1,17 +1,14 @@
-package ru.kviak.findroute.model;
+package ru.kviak.findroute.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.List;
-
 @Entity
 @Data
 @Table(name = "city")
-public class City {
+public class CityEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "city_id")
     private Long id;
 
     @Column(name = "name", nullable = false)
@@ -22,10 +19,4 @@ public class City {
 
     @Column(name = "latitude", nullable = false, unique = true)
     private double latitude;
-
-//    @OneToMany
-//    private List<Distance> distances;
-
-//    @OneToMany(mappedBy = "toCity")
-//    private List<Distance> distancesTo;
 }

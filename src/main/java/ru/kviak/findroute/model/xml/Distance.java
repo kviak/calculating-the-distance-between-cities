@@ -1,4 +1,4 @@
-package ru.kviak.findroute.dto;
+package ru.kviak.findroute.model.xml;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DistanceDto {
+public class Distance {
     private String fromCity;
     private String toCity;
     private Double distance;
