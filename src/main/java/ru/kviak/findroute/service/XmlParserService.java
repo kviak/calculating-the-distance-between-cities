@@ -54,8 +54,8 @@ public class XmlParserService {
 
     private DistanceEntity mapToDistance(Distance distanceDto) {
         DistanceEntity distanceEntity = new DistanceEntity();
-        distanceEntity.setFromCityEntity(cityRepository.findByName(distanceDto.getFromCity()).get());
-        distanceEntity.setToCityEntity(cityRepository.findByName(distanceDto.getToCity()).get());
+        distanceEntity.setFromCity(cityRepository.findByName(distanceDto.getFromCity()).get());
+        distanceEntity.setToCity(cityRepository.findByName(distanceDto.getToCity()).get());
         distanceEntity.setDistance(distanceDto.getDistance());
         return distanceEntity;
     }

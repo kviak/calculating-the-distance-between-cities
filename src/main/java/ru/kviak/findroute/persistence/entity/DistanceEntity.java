@@ -13,11 +13,11 @@ public class DistanceEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "from_city_id")
-    private CityEntity fromCityEntity;
+    private CityEntity fromCity;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "to_city_id")
-    private CityEntity toCityEntity;
+    private CityEntity toCity;
 
     @Column(name = "distance")
     private Double distance;

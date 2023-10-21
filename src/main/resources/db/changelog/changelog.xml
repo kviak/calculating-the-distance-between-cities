@@ -4,8 +4,8 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
-    <include file="create-changeset-cityEntity-table.xml" relativeToChangelogFile="true"/>
-    <include file="create-changeset-distanceEntity-table.xml" relativeToChangelogFile="true"/>
-    <include file="insert-changeset-cityEntity-table.xml" relativeToChangelogFile="true"/>
-    <include file="insert-changeset-distanceEntity-table.xml" relativeToChangelogFile="true"/>
+    <include file="create-changeset-city-table.xml" relativeToChangelogFile="true"/>
+    <include file="create-changeset-distance-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-changeset-city-table.xml" relativeToChangelogFile="true"/>
+    <include file="insert-changeset-distance-table.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

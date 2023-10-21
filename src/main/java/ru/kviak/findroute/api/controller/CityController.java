@@ -18,8 +18,8 @@ public class CityController {
 
     private final CityService cityService;
 
-    @GetMapping
     @JsonView(View.CityView.class)
+    @GetMapping
     public List<CityResponse> get() {
         return cityService.getAllCites();
     }

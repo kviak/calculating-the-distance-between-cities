@@ -55,7 +55,7 @@ public class MatrixDistanceService implements DistanceService {
 
     @Override
     public CalculationType getCalculationType() {
-        return CalculationType.Distance_Matrix;
+        return CalculationType.DISTANCE_MATRIX;
     }
 
     public Double findPathDijkstraAlgorithm(CityResponse sourceDto, CityResponse targetDto) {
@@ -81,7 +81,7 @@ public class MatrixDistanceService implements DistanceService {
             List<DistanceEntity> outgoingDistanceEntities = distanceRepository.findDistanceByFromCity_Name(currentCityEntity.getName()).orElseThrow(RouteToCityNotFoundException::new);
 
             for (DistanceEntity distanceEntity : outgoingDistanceEntities) {
-                CityEntity neighbor = distanceEntity.getToCityEntity();
+                CityEntity neighbor = distanceEntity.getToCity();
                 double tentativeDistance = distanceMap.get(currentCityEntity) + distanceEntity.getDistance();
 
                 if (tentativeDistance < distanceMap.getOrDefault(neighbor, Double.MAX_VALUE)) {

@@ -51,7 +51,7 @@ public class CrowflightDistanceService implements DistanceService {
 
     @Override
     public CalculationType getCalculationType() {
-        return CalculationType.Crowflight;
+        return CalculationType.CROWFLIGHT;
     }
 
     private double haversine(double lat1, double lon1, double lat2, double lon2) {
