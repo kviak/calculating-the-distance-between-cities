@@ -64,7 +64,6 @@ public class MatrixDistanceService implements DistanceService {
         CityEntity target = cityRepository.findById(targetDto.getId()).orElse(null);
 
         if (source == null || target == null) {
-            System.out.println("Source or target city not found.");
             throw new CityNotFoundException();
         }
 
@@ -92,7 +91,6 @@ public class MatrixDistanceService implements DistanceService {
         }
 
         if (!distanceMap.containsKey(target)) {
-            System.out.println("No path found from " + source.getName() + " to " + target.getName());
             throw new RouteToCityNotFoundException();
         } else {
             List<CityEntity> shortestPath = new ArrayList<>();

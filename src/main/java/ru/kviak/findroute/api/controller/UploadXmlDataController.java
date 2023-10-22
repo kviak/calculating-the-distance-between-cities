@@ -20,7 +20,7 @@ public class UploadXmlDataController {
     public ResponseEntity<String> uploadXMLData(@RequestParam("file") MultipartFile file) {
         try {
             xmlParserService.parseCitiesAndDistances(file.getInputStream());
-            return ResponseEntity.ok("Cities and distances added successfully");
+            return ResponseEntity.ok().build();
         } catch (Exception e) {
             throw new InvalidXmlDataException("Invalid input data", e);
         }
