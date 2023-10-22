@@ -35,7 +35,7 @@
 2. **Расчет расстояния между городами**
 
    - URL: `/api/v1/distance-calculator`
-   - Метод: `POST`
+   - Метод: `GET`
    - Входные параметры:
      - `calculation-type`: Тип расчета (&lt;Crowflight, Distance Matrix, All&gt;).
      - `from-city`: Начальный город (список id городов).
