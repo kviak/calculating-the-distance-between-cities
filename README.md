@@ -38,8 +38,8 @@
    - Метод: `POST`
    - Входные параметры:
      - `calculation-type`: Тип расчета (&lt;Crowflight, Distance Matrix, All&gt;).
-     - `from-city`: Начальный город (список городов).
-     - `to-city`: Конечный город (список городов).
+     - `from-city`: Начальный город (список id городов).
+     - `to-city`: Конечный город (список id городов).
    - Выход:
      - Результаты расчета расстояния в соответствии с выбранным типом.
    - Пример запроса: `/api/v1/distance-calculator?from-city=3&to-city=4&calculation-type=All`
