@@ -17,7 +17,7 @@ public class DistanceController {
     private final DistanceServiceProvider distanceServiceProvider;
 
     @JsonView(View.DistanceView.class)
-    @PostMapping
+    @GetMapping
     public List<CityDistanceResponse> calculateDistance(
             @RequestParam(name = "from-city") List<Long> fromCityId,
             @RequestParam(name = "to-city") List<Long> toCityId,
