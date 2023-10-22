@@ -1,0 +1,29 @@
+<CitiesAndDistancesWrapper>
+    <cities>
+        <CityXmlUpload>
+            <name>St. Petersburg</name>
+            <longitude>30.31586815058708</longitude>
+            <latitude>59.93909509810952</latitude>
+        </CityXmlUpload>
+        <CityXmlUpload>
+            <name>Novosibirsk</name>
+            <longitude>82.93786686262684</longitude>
+            <latitude>55.03019970380535</latitude>
+        </CityXmlUpload>
+    </cities>
+    <distances>
+        <Distance>
+            <fromCity>St. Petersburg</fromCity>
+            <toCity>Novosibirsk</toCity>
+            <distance>3296.4</distance>
+        </Distance>
+        <Distance>
+            <fromCity>Novosibirsk</fromCity>
+            <toCity>St. Petersburg</toCity>
+            <distance>3296.4</distance>
+        </Distance>
+    </distances>
+</CitiesAndDistancesWrapper>
+
+
+
