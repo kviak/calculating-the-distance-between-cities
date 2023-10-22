@@ -2,7 +2,6 @@ package ru.kviak.findroute.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import ru.kviak.findroute.exception.InvalidXmlDataException;

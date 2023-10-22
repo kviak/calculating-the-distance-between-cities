@@ -14,8 +14,8 @@ public class CityResponse {
     private long id;
     @JsonView({View.DistanceView.class, View.CityView.class})
     private String name;
-//    @JsonView(View.DistanceView.class)
+
     private double longitude;
-//    @JsonView(View.DistanceView.class)
+
     private double latitude;
 }

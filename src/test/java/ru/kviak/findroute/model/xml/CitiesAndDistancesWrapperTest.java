@@ -2,9 +2,6 @@ package ru.kviak.findroute.model.xml;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.kviak.findroute.model.xml.CitiesAndDistancesWrapper;
-import ru.kviak.findroute.model.xml.CityXmlUpload;
-import ru.kviak.findroute.model.xml.Distance;
 
 import java.util.ArrayList;
 import java.util.List;
