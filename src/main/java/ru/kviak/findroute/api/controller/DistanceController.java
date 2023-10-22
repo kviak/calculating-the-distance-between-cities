@@ -2,10 +2,7 @@ package ru.kviak.findroute.api.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.kviak.findroute.model.CalculationType;
 import ru.kviak.findroute.model.CityDistanceResponse;
 import ru.kviak.findroute.api.view.View;
@@ -20,7 +17,7 @@ public class DistanceController {
     private final DistanceServiceProvider distanceServiceProvider;
 
     @JsonView(View.DistanceView.class)
-    @GetMapping
+    @PostMapping
     public List<CityDistanceResponse> calculateDistance(
             @RequestParam(name = "from-city") List<Long> fromCityId,
             @RequestParam(name = "to-city") List<Long> toCityId,
